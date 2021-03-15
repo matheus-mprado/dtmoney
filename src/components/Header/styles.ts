@@ -14,6 +14,10 @@ export const Content = styled.div`
     align-items:center;
     justify-content:space-between;
 
+    @media(max-width:800px){
+        padding:2rem 1.5rem 12rem;
+    }
+
     button{
         font-size:1rem;
         color:#fff;
@@ -27,6 +31,16 @@ export const Content = styled.div`
 
         &:hover{
             filter: brightness(0.95)
+        }
+
+        @media(max-width:800px){
+            padding:0 1rem;
+        }
+    }
+
+    img{
+        @media(max-width:800px){
+            width:135px;
         }
     }
 `;

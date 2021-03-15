@@ -7,8 +7,8 @@ export const Container = styled.div`
     margin-top:-7rem;
 
     @media(max-width:800px){
-        grid-template-columns: unset;
-        grid-template-rows: repeat(3, 1fr);
+        overflow-x:auto;
+        margin-top:-10rem;
     }
 
     div{
@@ -34,6 +34,11 @@ export const Container = styled.div`
         &.highLight-background{
             background: var(--green);
             color: #fff;
+        }
+
+        @media(max-width:800px){
+            min-width:300px;
+            min-height:200px;
         }
     }
 `;
