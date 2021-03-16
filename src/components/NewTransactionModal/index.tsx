@@ -1,5 +1,5 @@
-import { FormEvent, useState, useContext } from 'react';
-import { TransactionsContext } from '../../TransactionsContext';
+import { FormEvent, useState } from 'react';
+import { useTransactions } from '../../hooks/useTransactions';
 import Modal from 'react-modal';
 
 import { Container, TransactionTypeContainer, RadioBox } from './styles';
@@ -19,7 +19,7 @@ interface NewTransactionModalProps {
 // COMPONENTE NEWTRANSACTION
 export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionModalProps) {
 
-    const {createTransaction} = useContext(TransactionsContext)
+    const { createTransaction } = useTransactions();
 
     // VALUES DO FORM
     const [title, setTitle] = useState('');
@@ -30,16 +30,21 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
     const [type, setType] = useState('deposit');
 
     //FUNÇÃO DE SUBMIT DO FORM
-    function handleCreateNewTransaction(event: FormEvent) {
+    async function handleCreateNewTransaction(event: FormEvent) {
         event.preventDefault();
 
-        createTransaction({
+        await createTransaction({
             title,
             amount,
             category,
             type
         })
-        
+
+        setTitle('');
+        setAmount(0);
+        setCategory('');
+        setType('deposit');
+        onRequestClose();
     }
 
     return (
