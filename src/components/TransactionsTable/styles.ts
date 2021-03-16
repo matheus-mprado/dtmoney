@@ -11,6 +11,10 @@ export const Container = styled.div`
         width:100%;
         border-spacing: 0 0.5rem;
 
+        @media(max-width:800px){
+            display:none;
+        }
+
         th{
             color:var(--text-body);
             font-weight:400;
@@ -39,5 +43,68 @@ export const Container = styled.div`
                 color:var(--red)
             }
         }
+    }
+
+    
+`;
+
+export const ListItemTransaction = styled.section`
+    display:none;
+    flex-direction:column;
+
+    @media(max-width:800px){
+        display:flex;
+        
+    }
+
+    div{
+        &.headerList{
+            display:flex;
+            flex-direction:row;
+            justify-content:space-between;
+            margin-bottom:1rem;
+            align-items:center;
+
+            p{
+                color:var(--text-body);
+            }
+        }
+
+        h2{
+            font-weight:400;
+            color:var(--text-title);
+        }
+    }
+
+`;
+
+export const ItemTransaction = styled.div`
+    background:var(--shape);
+    margin:0.25rem 0;
+    padding:1rem 2rem;
+    border-radius:0.25rem;
+
+    h3{
+        font-size:1.5rem;
+        font-weight:400;
+        line-height:2rem;
+        margin-top:0.25rem;
+
+        &.deposit{
+            color:var(--green)
+        }
+
+        &.withdraw{
+            color:var(--red)
+        }
+    }
+
+    div{
+        margin-top:1.5rem;
+        color:var(--text-body);
+        display:flex;
+        flex-direction:row;
+        justify-content:space-between;
+        align-items:center;
     }
 `;
